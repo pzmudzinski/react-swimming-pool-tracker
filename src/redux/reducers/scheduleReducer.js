@@ -59,3 +59,8 @@ export const getSchedule = (state) => (date) => {
   const scheduleForDate = schedule[date.format(SCHEDULE_DATE_FORMAT)];
   return scheduleForDate;
 };
+
+export const isScheduleLoaded = (state) => (date) => {
+  const schedule = getSchedule(state)
+  return schedule && !schedule.error && !schedule.isLoading;
+}
