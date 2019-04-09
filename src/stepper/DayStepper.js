@@ -34,7 +34,7 @@ class DotsMobileStepper extends React.Component {
     const {currentDate, dateFormat} = this.props;
     return (
       <Typography align="center" variant="h4" color="textPrimary">
-        {currentDate.format(dateFormat)}
+        {currentDate.locale('pl').format(dateFormat)}
       </Typography>
     )
   }

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import Paper from '@material-ui/core/Paper';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import ScheduleTable from './table/ScheduleTable';
 
 class ScheduleViewer extends Component {
 
@@ -30,7 +31,7 @@ class ScheduleViewer extends Component {
     } else {
       return (
         <Paper>
-          {JSON.stringify(schedule)}
+          <ScheduleTable schedules={schedule.schedules}/>
         </Paper>
       )
     }
