@@ -10,10 +10,16 @@ import { isScheduleLoaded } from "../reducers/scheduleReducer";
 
 const API_URL = 'https://sledzbasen.pl/api/Pools/olimpijczyk';
 
+const fetchOccupancy = (date) => {
+  const isToday = date.isSame(moment(), 'day');
+  const time = isToday ? moment().format('HH:MM') : '00:00';
+  return ajax.getJSON(`${API_URL}/occupancy?date=${date.format(SCHEDULE_DATE_FORMAT)}&time=${time}`)
+};
+
 export const fetchScheduleEpic = (action$, state$) => action$.pipe(
   ofType(SELECT_DATE),
   filter(({payload}) => !isScheduleLoaded(state$.value)(payload)),
-  mergeMap(({payload}) => ajax.getJSON(`${API_URL}/occupancy?date=${payload.format(SCHEDULE_DATE_FORMAT)}`).pipe(
+  mergeMap(({payload}) => fetchOccupancy(payload).pipe(
     map(response => ({
       type: FETCH_SCHEDULE_FULFILLED,
       payload: response
