@@ -10,7 +10,7 @@ export const scheduleReducer = (state = {}, action) => {
   switch (type) {
     case FETCH_SCHEDULE:
       return {
-        [payload]: { isLoading: true }
+        [payload.format(SCHEDULE_DATE_FORMAT)]: { isLoading: true }
       };
 
     case FETCH_SCHEDULE_FULFILLED:
@@ -18,12 +18,20 @@ export const scheduleReducer = (state = {}, action) => {
         ...state,
         [moment(payload.date).format(SCHEDULE_DATE_FORMAT)]: {
           isLoading: false,
+          isError: false,
           schedules: payload.schedules
         }
       };
 
     case FETCH_SCHEDULE_REJECTED:
-      return state;
+      return {
+        ...state,
+        [moment(payload.date).format(SCHEDULE_DATE_FORMAT)]: {
+          isLoading: false,
+          isError: true,
+          error: payload.error
+        }
+      };
     default:
       return state;
   }
@@ -60,7 +68,7 @@ export const getSchedule = (state) => (date) => {
   return scheduleForDate;
 };
 
-export const isScheduleLoaded = (state) => (date) => {
-  const schedule = getSchedule(state)
-  return schedule && !schedule.error && !schedule.isLoading;
-}
+export const isScheduleLoading = (state) => (date) => {
+  const schedule = getSchedule(state)(date);
+  return schedule && schedule.isLoading;
+};

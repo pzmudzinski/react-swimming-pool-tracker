@@ -14,17 +14,25 @@ class ScheduleViewer extends Component {
   };
 
   render() {
-    const {schedule} = this.props;
+    const {schedule, isLoading} = this.props;
 
-    if (!!schedule && !schedule.isLoading) {
+    if (isLoading) {
+      return <CircularProgress/>
+    }
+
+    if (schedule.isError) {
+      return (
+        <Paper>
+          {JSON.stringify(schedule.error)}
+        </Paper>
+      )
+
+    } else {
       return (
         <Paper>
           {JSON.stringify(schedule)}
         </Paper>
       )
-
-    } else {
-      return <CircularProgress/>
     }
   }
 }

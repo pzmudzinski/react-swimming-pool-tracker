@@ -1,9 +1,11 @@
-import {ofType} from "redux-observable";
+import {ofType} from "redux-observable"
+import moment from "moment";
 import {map, mergeMap, catchError, startWith} from "rxjs/operators";
 import {of} from 'rxjs';
 import {ajax} from "rxjs/ajax";
 import {SCHEDULE_DATE_FORMAT} from "../reducers/scheduleReducer";
 import {FETCH_SCHEDULE, FETCH_SCHEDULE_FULFILLED, FETCH_SCHEDULE_REJECTED, SELECT_DATE} from "../actions";
+
 
 const API_URL = 'https://sledzbasen.pl/api/Pools/olimpijczyk';
 
@@ -16,12 +18,15 @@ export const fetchScheduleEpic = action$ => action$.pipe(
     })),
     catchError(error => of({
       type: FETCH_SCHEDULE_REJECTED,
-      payload: error.xhr.response,
-      error: true
+      payload: { error:error.xhr.response, date: payload },
     })),
     startWith({
       type: FETCH_SCHEDULE,
       payload
     })
-  ))
+  )),
+  startWith({
+    type: SELECT_DATE,
+    payload: moment()
+  })
 );
