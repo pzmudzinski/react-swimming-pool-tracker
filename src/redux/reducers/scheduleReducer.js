@@ -1,8 +1,11 @@
 import moment from 'moment';
+import 'moment/locale/pl';
 import {FETCH_SCHEDULE} from "../actions";
 import {FETCH_SCHEDULE_FULFILLED, FETCH_SCHEDULE_REJECTED, SELECT_DATE} from "../actions";
 
 export const SCHEDULE_DATE_FORMAT = 'YYYY-MM-DD';
+
+moment.locale('pl')
 
 export const scheduleReducer = (state = {}, action) => {
   const { type, payload } = action;
@@ -15,6 +18,7 @@ export const scheduleReducer = (state = {}, action) => {
       };
 
     case FETCH_SCHEDULE_FULFILLED:
+      console.log('SCHEDULE_FULFILLED', payload);
       return {
         ...state,
         [moment(payload.date).format(SCHEDULE_DATE_FORMAT)]: {

@@ -11,7 +11,7 @@ import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 const styles = {
   root: {
     display: 'flex',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     alignItems: 'center'
   },
 };
@@ -34,7 +34,7 @@ class DotsMobileStepper extends React.Component {
     const {currentDate, dateFormat} = this.props;
     return (
       <Typography align="center" variant="h4" color="textPrimary">
-        {currentDate.locale('pl').format(dateFormat)}
+        {currentDate.format(dateFormat)}
       </Typography>
     )
   }
@@ -76,7 +76,7 @@ DotsMobileStepper.propTypes = {
 };
 
 DotsMobileStepper.defaultProps ={
-  dateFormat: 'dddd',
+  dateFormat: 'dddd, DD.MM',
   shortDateFormat: 'DD.MM'
 };
 

@@ -30,9 +30,7 @@ class ScheduleViewer extends Component {
 
     } else {
       return (
-        <Paper style={{display: 'flex', justifyContent: 'center'}}>
-          <ScheduleTable schedules={schedule.schedules}/>
-        </Paper>
+          <ScheduleTable schedule={schedule}/>
       )
     }
   }

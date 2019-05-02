@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {withStyles} from '@material-ui/core/styles';
+import { TopAppBar, TopAppBarRow, TopAppBarSection, TopAppBarTitle } from '@rmwc/top-app-bar';
+import '@material/top-app-bar/dist/mdc.top-app-bar.css';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -8,12 +9,12 @@ import Typography from '@material-ui/core/Typography';
 export default function SimpleAppBar(props) {
 
   return (
-    <AppBar position="static" color="primary">
-      <Toolbar>
-        <Typography variant="h6" color="inherit">
-          Olimpijczyk
-        </Typography>
-      </Toolbar>
-    </AppBar>
+    <TopAppBar>
+      <TopAppBarRow>
+        <TopAppBarSection>
+          <TopAppBarTitle>Olimpijczyk</TopAppBarTitle>
+        </TopAppBarSection>
+      </TopAppBarRow>
+    </TopAppBar>
   );
 }
