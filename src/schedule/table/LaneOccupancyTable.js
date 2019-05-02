@@ -9,14 +9,14 @@ const Wrapper = styled.div`
 `;
 
 const DummyLane = styled.div`
-  border-bottom: 1px solid black;
-  height: 60px;
+  border-bottom: 1px solid #e8e8e8;
 `;
 
 const Lanes = styled.div`
   display: grid;
   grid-row-start: 1;
   grid-column-start: 1;
+  grid-template-rows: repeat(auto-fill, 60px);
 `;
 
 const ColorLanes = styled.div`
@@ -25,8 +25,8 @@ const ColorLanes = styled.div`
   grid-column-start: 1;
   padding-left: 1em;
   padding-right: 1em;
-  grid-gap: 0px;
-  grid-template-rows: repeat(auto-fill, 15px);
+  grid-gap: 10px;
+  grid-template-rows: repeat(auto-fill, 5px);
 `;
 
 class LaneOccupancyTable extends Component {

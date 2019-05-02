@@ -20,7 +20,7 @@ export const fetchScheduleEpic = (action$, state$) => action$.pipe(
   mergeMap(({payload}) => fetchOccupancy(payload).pipe(
     map(response => ({
       type: FETCH_SCHEDULE_FULFILLED,
-      payload: response || { schedules: [] }
+      payload: response || { schedules: [], date: payload }
     })),
     catchError(error => of({
       type: FETCH_SCHEDULE_REJECTED,

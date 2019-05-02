@@ -1,62 +1,60 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {withStyles} from '@material-ui/core/styles';
+import styled from 'styled-components';
+import '@material/button/dist/mdc.button.css';
+import { Button } from '@rmwc/button';
 
-import Button from '@material-ui/core/Button';
-import Toolbar from '@material-ui/core/Toolbar'
-import Typography from '@material-ui/core/Typography';
-import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
-import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
-
-const styles = {
-  root: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center'
-  },
-};
+const Wrapper = styled.header`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
 
 class DotsMobileStepper extends React.Component {
 
   render() {
-    const {classes, theme} = this.props;
-
     return (
-      <Toolbar classes={{root: classes.root}}>
+      <Wrapper>
         {this.renderPreviousDate()}
         {this.renderCurrentDate()}
         {this.renderNextDate()}
-      </Toolbar>
+      </Wrapper>
     )
   }
 
   renderCurrentDate() {
     const {currentDate, dateFormat} = this.props;
     return (
-      <Typography align="center" variant="h4" color="textPrimary">
+      <h4>
         {currentDate.format(dateFormat)}
-      </Typography>
+      </h4>
     )
   }
 
   renderPreviousDate() {
-    const {theme, previousDate, isPreviousDateDisabled, shortDateFormat, selectDate} = this.props;
+    const { previousDate, isPreviousDateDisabled, shortDateFormat, selectDate} = this.props;
     return (
-      <Button size="small" onClick={() => selectDate(previousDate)} disabled={isPreviousDateDisabled}>
-        {theme.direction === 'rtl' ? <KeyboardArrowRight/> : <KeyboardArrowLeft/>}
-        {previousDate.format(shortDateFormat)}
-      </Button>
+      <Button
+        raised
+        label={previousDate.format(shortDateFormat)}
+        icon="keyboard_arrow_left"
+        disabled={isPreviousDateDisabled}
+        onClick={() => selectDate(previousDate)}
+      />
     )
 
   }
 
   renderNextDate() {
-    const {theme, nextDate, isNextDateDisabled, shortDateFormat, selectDate} = this.props;
+    const { nextDate, isNextDateDisabled, shortDateFormat, selectDate} = this.props;
     return (
-      <Button size="small" onClick={() => selectDate(nextDate)} disabled={isNextDateDisabled}>
-        {nextDate.format(shortDateFormat)}
-        {theme.direction === 'rtl' ? <KeyboardArrowLeft/> : <KeyboardArrowRight/>}
-      </Button>
+      <Button
+        raised
+        label={nextDate.format(shortDateFormat)}
+        onClick={() => selectDate(nextDate)}
+        disabled={isNextDateDisabled}
+        trailingIcon="keyboard_arrow_right"
+      />
     )
   }
 }
@@ -80,4 +78,4 @@ DotsMobileStepper.defaultProps ={
   shortDateFormat: 'DD.MM'
 };
 
-export default withStyles(styles, {withTheme: true})(DotsMobileStepper);
+export default DotsMobileStepper;

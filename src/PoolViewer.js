@@ -9,14 +9,15 @@ const styles = theme => ({
   wrapper: {
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    backgroundColor: '#e5f3fb'
   },
   root: {
     ...theme.mixins.gutters(),
     paddingTop: theme.spacing.unit * 2,
     paddingBottom: theme.spacing.unit * 2,
     marginTop: theme.spacing.unit * 6,
-    minWidth: '720px'
+    minWidth: '720px',
   },
 });
 

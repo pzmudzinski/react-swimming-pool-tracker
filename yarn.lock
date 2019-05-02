@@ -950,6 +950,19 @@
   dependencies:
     tslib "^1.9.3"
 
+"@material/button@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@material/button/-/button-1.1.1.tgz#35af0d295f6ce6e3df9d4978485b5294d794f682"
+  integrity sha512-03aEyzZBIeqpgZkqLjro/enz8ORUnfQslBUdAgkPqdjh1X0oIEugr3UaFyC5QlSBTU3j3GIsnKIxWaggkRenpQ==
+  dependencies:
+    "@material/elevation" "^1.1.0"
+    "@material/feature-targeting" "^0.44.1"
+    "@material/ripple" "^1.1.0"
+    "@material/rtl" "^0.42.0"
+    "@material/shape" "^1.1.1"
+    "@material/theme" "^1.1.0"
+    "@material/typography" "^1.0.0"
+
 "@material/dom@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@material/dom/-/dom-1.1.0.tgz#3bd3d1a3415b4181118fecb182d93beda56a6f8c"
@@ -1047,6 +1060,18 @@
     focus-trap "^4.0.2"
     hyperform "^0.9.9"
     mutation-observer "^1.0.3"
+
+"@rmwc/button@^5.4.3":
+  version "5.4.3"
+  resolved "https://registry.yarnpkg.com/@rmwc/button/-/button-5.4.3.tgz#ae0dc43b454d83d5d76cc8a014b698033acec934"
+  integrity sha512-WUxrqgHrRMWZ8FPHQLpePJdez14hqG1HpWuHIDqzT6NKOC49VNXi1TDqWb8u7cyy+tWd3+2/2mkSTppQmvBzTw==
+  dependencies:
+    "@material/button" "^1.1.1"
+    "@rmwc/base" "^5.4.3"
+    "@rmwc/icon" "^5.4.3"
+    "@rmwc/provider" "^5.4.3"
+    "@rmwc/ripple" "^5.4.3"
+    "@rmwc/types" "^5.4.3"
 
 "@rmwc/icon@^5.4.3":
   version "5.4.3"

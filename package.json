@@ -5,6 +5,8 @@
   "dependencies": {
     "@material-ui/core": "^3.9.3",
     "@material-ui/icons": "^3.0.2",
+    "@rmwc/button": "^5.4.3",
+    "@rmwc/icon": "^5.4.3",
     "@rmwc/top-app-bar": "^5.4.3",
     "lodash": "^4.17.11",
     "moment": "^2.24.0",

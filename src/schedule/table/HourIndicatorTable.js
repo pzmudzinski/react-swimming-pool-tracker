@@ -3,19 +3,26 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const HourIndicator = styled.h5`
-
+  height: 60px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border-bottom: 1px solid #e8e8e8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #c1c7d0;
 `;
 
 const HourWrapper = styled.div`
-  border-bottom: 1px solid black;
+  
 `;
 
 const Hours = styled.div`
   grid-area: hours;
-  grid-template-rows: 60px;
   display: grid;
+  //grid-template-rows: repeat(auto-fill, 60px);
   
-  border-right: 1px solid black;
+  border-right: 1px solid #e8e8e8;
 `;
 
 class HourIndicatorTable extends Component {
@@ -30,7 +37,7 @@ class HourIndicatorTable extends Component {
     return (
       <Hours>
         {hours.map( (h) => {
-          return <HourWrapper key={h}><HourIndicator >{`${h}:00`}</HourIndicator></HourWrapper>
+          return <HourIndicator key={h} >{`${h}:00`}</HourIndicator>
         })}
       </Hours>
     )

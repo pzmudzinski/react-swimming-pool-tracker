@@ -9,10 +9,10 @@ const HOUR_HEIGHT = 60;
 
 const Grid = styled.div`
   display: grid;
-  grid-gap: 10px;
   grid-template-columns: 100px 1fr;
   grid-template-areas:
    "hours lanes";
+  border-top: 1px solid #e8e8e8;
 `;
 
 class ScheduleTable extends Component {

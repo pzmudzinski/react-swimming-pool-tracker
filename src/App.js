@@ -16,6 +16,7 @@ class App extends Component {
           <TopBar/>
           <TopAppBarFixedAdjust/>
           <PoolViewer/>
+          <TopAppBarFixedAdjust/>
         </div>
       </Provider>
     );
