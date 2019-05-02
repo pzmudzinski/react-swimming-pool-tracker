@@ -9,8 +9,7 @@ const styles = theme => ({
   wrapper: {
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#e5f3fb'
+    alignItems: 'center'
   },
   root: {
     ...theme.mixins.gutters(),
