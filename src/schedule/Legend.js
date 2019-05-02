@@ -35,6 +35,7 @@ const ItemWrapper = styled.div`
   display: flex;
   align-items: center;
   margin-right: 5px;
+  margin-top: 5px;
 `;
 
 const LegendItem = ({color, title}) => {

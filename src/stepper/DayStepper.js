@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import '@material/button/dist/mdc.button.css';
 import { Button } from '@rmwc/button';
 import { Typography } from "@rmwc/typography";
+import {DesktopOnly, MobileOnly} from "../mobile";
 
 const Wrapper = styled.header`
   display: flex;
@@ -25,10 +26,17 @@ class DotsMobileStepper extends React.Component {
   }
 
   renderCurrentDate() {
-    const {currentDate, dateFormat} = this.props;
+    const {currentDate, dateFormat, shortDateFormat} = this.props;
     return (
       <Typography use="headline3">
-        {currentDate.format(dateFormat)}
+        <DesktopOnly>
+          {currentDate.format(dateFormat)}
+        </DesktopOnly>
+
+        <MobileOnly>
+          {currentDate.format(shortDateFormat)}
+        </MobileOnly>
+
       </Typography>
     )
   }

@@ -9,6 +9,7 @@ import lady1 from '../../img/lady-1.svg';
 import lady2 from '../../img/lady-2.svg';
 import man1 from '../../img/man-1.svg';
 import man2 from '../../img/man-2.svg';
+import { DesktopOnly } from "../../mobile";
 
 const allPossibleSwimmers = [lady1, lady2, man1, man2];
 
@@ -66,7 +67,10 @@ const LaneView = ({startTime, endTime, tracks, numberOfSwimmers, duration}) => {
     <Lane>
       <Time>{`${startTime}-${endTime}`}</Time>
       <span>{tracks.join(', ').replace('shallow', 'wypł.')}</span>
-      { numberOfSwimmers > 0 && <Swimmers laneId={`${startTime}-${duration}`} numberOfSwimmers={numberOfSwimmers}/>}
+      <DesktopOnly>
+        { numberOfSwimmers > 0 && <Swimmers laneId={`${startTime}-${duration}`} numberOfSwimmers={numberOfSwimmers}/>}
+      </DesktopOnly>
+
     </Lane>
   )
 };
