@@ -5,6 +5,7 @@ import './App.css';
 import TopBar from './topBar/TopBar';
 import { TopAppBarFixedAdjust } from '@rmwc/top-app-bar';
 import PoolViewer from './PoolViewContainer'
+import { DesktopOnly } from "./mobile";
 
 const store = configureStore();
 
@@ -14,9 +15,12 @@ class App extends Component {
       <Provider store={store}>
         <div className="App">
           <TopBar/>
-          <TopAppBarFixedAdjust/>
+          <DesktopOnly>
+            <TopAppBarFixedAdjust/>
+          </DesktopOnly>
+
           <PoolViewer/>
-          <TopAppBarFixedAdjust/>
+
         </div>
       </Provider>
     );

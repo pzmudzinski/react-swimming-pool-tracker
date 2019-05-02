@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { TopAppBar, TopAppBarRow, TopAppBarSection, TopAppBarTitle } from '@rmwc/top-app-bar';
+import { Typography } from "@rmwc/typography";
+import '@material/typography/dist/mdc.typography.css';
 import '@material/top-app-bar/dist/mdc.top-app-bar.css';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 
 export default function SimpleAppBar(props) {
 
@@ -12,7 +11,11 @@ export default function SimpleAppBar(props) {
     <TopAppBar>
       <TopAppBarRow>
         <TopAppBarSection>
-          <TopAppBarTitle>Olimpijczyk</TopAppBarTitle>
+          <TopAppBarTitle>
+            <Typography use="headline4">
+              Olimpijczyk
+            </Typography>
+            </TopAppBarTitle>
         </TopAppBarSection>
       </TopAppBarRow>
     </TopAppBar>

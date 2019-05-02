@@ -1,6 +1,7 @@
 .App {
   text-align: center;
   background-color: #e5f3fb;
+  min-height: 100vh;
 }
 
 .App-logo {
@@ -31,4 +32,8 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+:root {
+  --mdc-theme-primary: #005ce1;
 }

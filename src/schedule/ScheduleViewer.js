@@ -1,8 +1,16 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import Paper from '@material-ui/core/Paper';
-import CircularProgress from '@material-ui/core/CircularProgress';
+import styled from 'styled-components';
+import { CircularProgress } from '@rmwc/circular-progress';
+import { Card } from "@rmwc/card";
 import ScheduleTable from './table/ScheduleTable';
+
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4em;
+`;
 
 class ScheduleViewer extends Component {
 
@@ -18,14 +26,14 @@ class ScheduleViewer extends Component {
     const {schedule, isLoading} = this.props;
 
     if (isLoading) {
-      return <CircularProgress/>
+      return <Wrapper> <CircularProgress/> </Wrapper>
     }
 
     if (schedule.isError) {
       return (
-        <Paper>
+        <Wrapper>
           {JSON.stringify(schedule.error)}
-        </Paper>
+        </Wrapper>
       )
 
     } else {

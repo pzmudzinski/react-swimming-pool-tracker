@@ -3,11 +3,13 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import '@material/button/dist/mdc.button.css';
 import { Button } from '@rmwc/button';
+import { Typography } from "@rmwc/typography";
 
 const Wrapper = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 1em;
 `;
 
 class DotsMobileStepper extends React.Component {
@@ -25,9 +27,9 @@ class DotsMobileStepper extends React.Component {
   renderCurrentDate() {
     const {currentDate, dateFormat} = this.props;
     return (
-      <h4>
+      <Typography use="headline3">
         {currentDate.format(dateFormat)}
-      </h4>
+      </Typography>
     )
   }
 
@@ -60,9 +62,6 @@ class DotsMobileStepper extends React.Component {
 }
 
 DotsMobileStepper.propTypes = {
-  classes: PropTypes.object.isRequired,
-  theme: PropTypes.object.isRequired,
-
   dateFormat: PropTypes.string,
   shortDateFormat: PropTypes.string,
   previousDate: PropTypes.object,

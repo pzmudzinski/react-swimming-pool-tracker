@@ -116,7 +116,7 @@ class LaneOccupancyView extends Component {
     }
 
     let numberOfSwimmers = 0;
-    if (colorMatch === COLOR_GREAT) {
+    if (colorMatch === COLOR_GREAT || colorMatch == COLOR_OK) {
       numberOfSwimmers = lane.duration > 60 ? 2 : 1;
     }
 

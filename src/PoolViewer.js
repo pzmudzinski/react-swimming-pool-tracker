@@ -1,39 +1,44 @@
 import React, {Component} from 'react';
-import Paper from '@material-ui/core/Paper';
-import CircularProgress from '@material-ui/core/CircularProgress';
-import {withStyles} from '@material-ui/core/styles';
+import styled from 'styled-components';
+import { Card } from "@rmwc/card";
+import { TopAppBarFixedAdjust} from "@rmwc/top-app-bar";
+import '@material/card/dist/mdc.card.css';
+import { CircularProgress } from '@rmwc/circular-progress';
+import '@rmwc/circular-progress/circular-progress.css';
 import DayStepper from './stepper';
 import ScheduleViewContainer from './schedule/ScheduleViewerContainer';
+import Legend from './schedule/Legend';
 
-const styles = theme => ({
-  wrapper: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  root: {
-    ...theme.mixins.gutters(),
-    paddingTop: theme.spacing.unit * 2,
-    paddingBottom: theme.spacing.unit * 2,
-    marginTop: theme.spacing.unit * 6,
-    minWidth: '720px',
-  },
-});
+const RootCard = styled(Card)`
+  @media (min-width: 640px) {
+    min-width: 640px;
+  }
+`;
+
+const Wrapper = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+`;
 
 class PoolViewer extends Component {
 
   render() {
-    const { classes, isLoading } = this.props;
+    const { isLoading } = this.props;
     return (
-      <div className={classes.wrapper}>
-        <Paper className={classes.root}>
-          <DayStepper/>
-          { isLoading && <CircularProgress/>}
-          { !isLoading && <ScheduleViewContainer/>}
-        </Paper>
-      </div>
+      <Wrapper>
+        <TopAppBarFixedAdjust>
+          <RootCard>
+            <DayStepper/>
+            { isLoading && <CircularProgress/>}
+            { !isLoading && <ScheduleViewContainer/>}
+          </RootCard>
+        </TopAppBarFixedAdjust>
+        <Legend/>
+      </Wrapper>
     )
   }
 }
 
-export default withStyles(styles)(PoolViewer);
+export default PoolViewer;
