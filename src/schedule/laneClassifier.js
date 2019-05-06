@@ -1,6 +1,6 @@
-export function classifyOccupancy(occupancyString) {
-  const numberOfLanes = 10;
-  const poolLength = 50;
+export function classifyOccupancy(pool, occupancyString) {
+  const numberOfLanes = pool.maximumNumberOfLanes;
+  const poolLength = pool.length;
   const maximumOccupancy = (numberOfLanes - 1) * poolLength;
 
   const sum = occupancyString.reduce( (sum, current) => {

@@ -40,7 +40,7 @@ const classifySchedule = (pool, schedule) => {
         startHour: extractHour(s.startTime),
         duration: d.asMinutes(),
         minutesSinceStart: minutesSinceStart.asMinutes(),
-        occupancyRate: classifyOccupancy(s.tracks)
+        occupancyRate: classifyOccupancy(pool, s.tracks)
       }
     })
   }
