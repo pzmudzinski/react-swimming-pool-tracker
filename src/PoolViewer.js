@@ -10,8 +10,12 @@ import ScheduleViewContainer from './schedule/ScheduleViewerContainer';
 import Legend from './schedule/Legend';
 
 const RootCard = styled(Card)`
-  @media (min-width: 640px) {
-    min-width: 640px;
+  @media (min-width: 720px) {
+    min-width: 720px;
+  }
+  
+  @media (min-width: 1024px) {
+    min-width: 920px;
   }
 `;
 
