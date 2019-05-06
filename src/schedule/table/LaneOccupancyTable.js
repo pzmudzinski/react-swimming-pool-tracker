@@ -25,8 +25,8 @@ const ColorLanes = styled.div`
   grid-column-start: 1;
   padding-left: 1em;
   padding-right: 1em;
-  grid-gap: 10px;
-  grid-template-rows: repeat(auto-fill, 5px);
+  grid-gap: 5px;
+  grid-template-rows: ${props => `repeat(${(props.hours.length -1) * 4}, 10px)`};
 `;
 
 class LaneOccupancyTable extends Component {
@@ -47,7 +47,7 @@ class LaneOccupancyTable extends Component {
         <Lanes>
           {hours.map( (h) => <DummyLane key={h} /> )}
         </Lanes>
-        <ColorLanes>
+        <ColorLanes hours={hours}>
           {lanes.map( (lane) => <LaneOccupancyView key={lane.startTime} lane={lane}/>)}
         </ColorLanes>
       </Wrapper>

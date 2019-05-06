@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import ReactTooltip from 'react-tooltip'
 import sample from 'lodash/sample';
 import yellowLane from '../../img/yellow-lane-barrier.svg';
 import redLane from '../../img/red-lane-barrier.svg';
@@ -68,10 +69,19 @@ const LaneView = ({startTime, endTime, tracks, numberOfSwimmers, duration}) => {
       <Time>{`${startTime}-${endTime}`}</Time>
       <span>{tracks.join(', ').replace('shallow', 'wypł.')}</span>
       <DesktopOnly>
-        { numberOfSwimmers > 0 && <Swimmers laneId={`${startTime}-${duration}`} numberOfSwimmers={numberOfSwimmers}/>}
+        { numberOfSwimmers > 0 && duration > 30 && <Swimmers laneId={`${startTime}-${duration}`} numberOfSwimmers={numberOfSwimmers}/>}
       </DesktopOnly>
 
     </Lane>
+  )
+};
+
+const ShortLaneView = ({startTime, endTime, tracks, numberOfSwimmers, duration}) => {
+  return (
+    <ReactTooltip id={startTime}>
+      <Time>{`${startTime}-${endTime}: `}</Time>
+      <span>{tracks.join(', ').replace('shallow', 'wypł.')}</span>
+    </ReactTooltip>
   )
 };
 
@@ -103,11 +113,16 @@ const Swimmers = ({laneId, numberOfSwimmers}) => {
 class LaneOccupancyView extends Component {
 
   static propTypes = {
-    lane: PropTypes.object.isRequired
+    lane: PropTypes.object.isRequired,
+    shortLaneThreshold: PropTypes.number
+  };
+
+  static defaultProps = {
+    shortLaneThreshold: 30
   };
 
   render() {
-    const { lane } = this.props;
+    const { lane, shortLaneThreshold } = this.props;
 
     const colorMatch = matchColor(lane.occupancyRate);
     var laneBorder = null;
@@ -118,6 +133,8 @@ class LaneOccupancyView extends Component {
     } else if (colorMatch == COLOR_LOW) {
       laneBorder = redLane;
     }
+
+    const isShort = lane.duration < shortLaneThreshold;
 
     let numberOfSwimmers = 0;
     if (colorMatch === COLOR_GREAT || colorMatch == COLOR_OK) {
@@ -130,14 +147,14 @@ class LaneOccupancyView extends Component {
         minutesSinceStart={lane.minutesSinceStart}
         duration={lane.duration}
         laneImage={yellowLane}
+        data-tip
+        data-for={lane.startTime}
       >
-        <LaneView
+        { isShort && <ShortLaneView {...lane}/>}
 
-          {...lane}
-          numberOfSwimmers={numberOfSwimmers}
-        />
+        { !isShort && <LaneView {...lane} numberOfSwimmers={numberOfSwimmers}/> }
 
-        { laneBorder && <LaneBorder src={laneBorder}/>}
+        { lane.duration > 30 && laneBorder && <LaneBorder src={laneBorder}/>}
       </Container>
     );
   }
