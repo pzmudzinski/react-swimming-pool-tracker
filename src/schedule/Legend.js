@@ -53,7 +53,7 @@ const Legend = (props) => {
       <LegendItem color={theme.COLOR_GREAT} title="Dużo wolnych torów"/>
       <LegendItem color={theme.COLOR_OK} title="Jest OK"/>
       <LegendItem color={theme.COLOR_LOW} title="Kiepsko"/>
-      <LegendItem color={theme.COLOR_NONE} title="Brak wolnych torów"/>
+      <LegendItem color={theme.COLOR_NONE} title="Beznadziejnie"/>
     </Wrapper>
   )
 };
