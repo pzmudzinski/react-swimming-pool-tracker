@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import isEmpty from 'lodash/isEmpty';
 import { CircularProgress } from '@rmwc/circular-progress';
 import { Card } from "@rmwc/card";
+import { EmptySchedule, ErrorSchedule } from "./EmptySchedule";
 import ScheduleTable from './table/ScheduleTable';
 
 const Wrapper = styled.div`
@@ -31,12 +33,14 @@ class ScheduleViewer extends Component {
 
     if (schedule.isError) {
       return (
-        <Wrapper>
-          {JSON.stringify(schedule.error)}
-        </Wrapper>
+        <Wrapper><ErrorSchedule/></Wrapper>
       )
 
     } else {
+      if (isEmpty(schedule.schedules)) {
+        return <Wrapper><EmptySchedule/></Wrapper>
+      }
+
       return (
           <ScheduleTable schedule={schedule}/>
       )

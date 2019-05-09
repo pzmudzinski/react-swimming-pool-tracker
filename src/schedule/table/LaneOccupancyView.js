@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, useMemo} from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import ReactTooltip from 'react-tooltip'
@@ -85,8 +85,6 @@ const ShortLaneView = ({startTime, endTime, tracks, numberOfSwimmers, duration})
   )
 };
 
-const swimmerCache = {};
-
 const SwimmerWrapper = styled.div`
   display: grid;
   grid-template-rows: 1fr 1fr;
@@ -96,11 +94,12 @@ const SwimmerWrapper = styled.div`
 `;
 
 const Swimmers = ({laneId, numberOfSwimmers}) => {
-  let swimmers = swimmerCache[laneId];
-  if (!swimmers) {
-    swimmerCache[laneId] = numberOfSwimmers === 1 ? [sample(allPossibleSwimmers)] : [sample(allPossibleSwimmers), sample(allPossibleSwimmers)];
-    swimmers = swimmerCache[laneId];
-  }
+
+  const takeRandomSwimmers = (numberOfSwimmers) => {
+    return numberOfSwimmers === 1 ? [sample(allPossibleSwimmers)] : [sample(allPossibleSwimmers), sample(allPossibleSwimmers)]
+  };
+
+  const swimmers = useMemo(() => takeRandomSwimmers(numberOfSwimmers), [laneId, numberOfSwimmers]);
 
   return (
     <SwimmerWrapper>
