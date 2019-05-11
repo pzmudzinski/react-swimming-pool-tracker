@@ -18,7 +18,6 @@ export const scheduleReducer = (state = {}, action) => {
       };
 
     case FETCH_SCHEDULE_FULFILLED:
-      console.log('SCHEDULE_FULFILLED', payload);
       return {
         ...state,
         [moment(payload.date).format(SCHEDULE_DATE_FORMAT)]: {

@@ -1,9 +1,13 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import { TopAppBar, TopAppBarRow, TopAppBarSection, TopAppBarTitle } from '@rmwc/top-app-bar';
 import { Typography } from "@rmwc/typography";
 import '@material/typography/dist/mdc.typography.css';
 import '@material/top-app-bar/dist/mdc.top-app-bar.css';
+
+const BoldTypography = styled(Typography)`
+  font-weight: bold;
+`;
 
 export default function SimpleAppBar(props) {
 
@@ -12,9 +16,9 @@ export default function SimpleAppBar(props) {
       <TopAppBarRow>
         <TopAppBarSection>
           <TopAppBarTitle>
-            <Typography use="headline4">
+            <BoldTypography use="headline4">
               Olimpijczyk
-            </Typography>
+            </BoldTypography>
             </TopAppBarTitle>
         </TopAppBarSection>
       </TopAppBarRow>

@@ -15,6 +15,7 @@ const Container = styled.div`
 const PlaceholderImage = styled.img`
   margin-top: 3em;
   margin-bottom: 1em;
+  max-width: 100%;
 `;
 
 export const EmptySchedule = () => {
