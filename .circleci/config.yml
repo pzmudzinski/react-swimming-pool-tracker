@@ -35,7 +35,7 @@ jobs:
 
       - add_ssh_keys:
           fingerprints:
-            - '$SSH_KEY_FINGERPRINT'
+            - "b0:f5:cc:70:cb:81:92:d2:12:52:97:03:11:0c:90:c0"
 
       - run:
           name: "Sending build directory into a host"
