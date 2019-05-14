@@ -39,7 +39,7 @@ jobs:
 
       - run:
           name: "Sending build directory into a host"
-          command: scp -P 88 -r ./build/* ${HOST_USER}@${HOST_ADDRESS}:~/app/client
+          command: yes | scp -P 88 -r ./build/* ${HOST_USER}@${HOST_ADDRESS}:~/app/client
 
       - run:
           name: "Restaring nginx"
