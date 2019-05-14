@@ -33,6 +33,10 @@ jobs:
 
       - run: yarn build
 
+      - add_ssh_keys:
+          fingerprints:
+            - "${SSH_KEY_FINGERPRINT}"
+
       - run:
           name: "Sending build directory into a host"
           command: scp -P 88 -r ./build/* ${HOST_USER}@${HOST_ADDRESS}:~/app/client
