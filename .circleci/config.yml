@@ -9,11 +9,6 @@ jobs:
       # specify the version you desire here
       - image: circleci/node:8.12
 
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/mongo:3.4.4
-
     working_directory: ~/repo
 
     steps:
@@ -35,3 +30,13 @@ jobs:
 
       # run tests!
       - run: yarn test
+
+      - run: yarn build
+
+      - run:
+          name: "Sending build directory into a host"
+          command: scp -P 88 -r ./build/* ${HOST_USER}@${HOST_ADDRESS}:~/app/client
+
+      - run:
+          name: "Restaring nginx"
+          command: ssh -p 88 ${HOST_USER}@${HOST_ADDRESS} sudo systemctl restart nginx
