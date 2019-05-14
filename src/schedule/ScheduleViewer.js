@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import isEmpty from 'lodash/isEmpty';
 import { CircularProgress } from '@rmwc/circular-progress';
-import { Card } from "@rmwc/card";
 import { EmptySchedule, ErrorSchedule } from "./EmptySchedule";
 import ScheduleTable from './table/ScheduleTable';
 

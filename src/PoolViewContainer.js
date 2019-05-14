@@ -1,4 +1,3 @@
-import React from 'react';
 import {connect} from 'react-redux'
 import PoolViewer from './PoolViewer';
 import { isPoolLoading, getPool } from "./redux/reducers/poolReducer";

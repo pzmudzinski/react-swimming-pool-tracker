@@ -13,10 +13,6 @@ const HourIndicator = styled.h5`
   color: #c1c7d0;
 `;
 
-const HourWrapper = styled.div`
-  
-`;
-
 const Hours = styled.div`
   grid-area: hours;
   display: grid;

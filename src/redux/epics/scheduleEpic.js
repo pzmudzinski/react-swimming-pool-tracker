@@ -1,6 +1,6 @@
 import {ofType} from "redux-observable"
 import moment from "moment";
-import {map, mergeMap, catchError, startWith, filter, take, mapTo} from "rxjs/operators";
+import {map, mergeMap, catchError, startWith, filter, mapTo} from "rxjs/operators";
 import {of} from 'rxjs';
 import {API_URL, DEFAULT_POOL_NAME} from "./api";
 import {ajax} from "rxjs/ajax";
@@ -9,8 +9,6 @@ import {FETCH_SCHEDULE, FETCH_SCHEDULE_FULFILLED, FETCH_SCHEDULE_REJECTED, SELEC
 import { isScheduleLoaded } from "../reducers/scheduleReducer";
 
 const fetchOccupancy = (date) => {
-  const isToday = date.isSame(moment(), 'day');
-  const time = isToday ? moment().format('HH:MM') : '00:00';
   return ajax.getJSON(`${API_URL}/pools/${DEFAULT_POOL_NAME}/occupancy?date=${date.format(SCHEDULE_DATE_FORMAT)}`)
 };
 

@@ -125,18 +125,18 @@ class LaneOccupancyView extends Component {
 
     const colorMatch = matchColor(lane.occupancyRate);
     var laneBorder = null;
-    if (colorMatch == COLOR_GREAT) {
+    if (colorMatch === COLOR_GREAT) {
       laneBorder = blueLane;
-    } else if (colorMatch == COLOR_OK) {
+    } else if (colorMatch === COLOR_OK) {
       laneBorder = yellowLane;
-    } else if (colorMatch == COLOR_LOW) {
+    } else if (colorMatch === COLOR_LOW) {
       laneBorder = redLane;
     }
 
     const isShort = lane.duration < shortLaneThreshold;
 
     let numberOfSwimmers = 0;
-    if (colorMatch === COLOR_GREAT || colorMatch == COLOR_OK) {
+    if (colorMatch === COLOR_GREAT || colorMatch === COLOR_OK) {
       numberOfSwimmers = lane.duration > 60 ? 2 : 1;
     }
 

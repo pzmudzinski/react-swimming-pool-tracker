@@ -4,9 +4,6 @@ import styled from 'styled-components';
 import HourIndicatorTable from "./HourIndicatorTable";
 import LaneOccupancyTable from './LaneOccupancyTable';
 
-const BASIC_UNIT_SIZE = 15;
-const HOUR_HEIGHT = 60;
-
 const Grid = styled.div`
   display: grid;
   grid-template-columns: 100px 1fr;

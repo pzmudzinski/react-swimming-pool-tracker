@@ -1,6 +1,5 @@
 import {ofType} from "redux-observable"
-import moment from "moment";
-import {map, mergeMap, catchError, startWith, filter, take} from "rxjs/operators";
+import {map, mergeMap, catchError, startWith} from "rxjs/operators";
 import {of} from 'rxjs';
 import {API_URL, DEFAULT_POOL_NAME} from "./api";
 import {ajax} from "rxjs/ajax";
