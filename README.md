@@ -6,4 +6,4 @@ Build status:
 `yarn install`
 
 ## Run the app
-`npm start`
+`yarn start`
