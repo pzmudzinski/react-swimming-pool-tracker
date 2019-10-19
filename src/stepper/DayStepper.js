@@ -14,6 +14,31 @@ const Wrapper = styled.header`
 `;
 
 class DotsMobileStepper extends React.Component {
+  constructor(props) {
+    super(props);
+
+    const body = document.getElementsByTagName("body")[0];
+    body.addEventListener("keydown", this.onKeydown);
+  }
+
+  componentWillUnmount() {
+    const body = document.getElementsByTagName("body")[0];
+    body.removeEventListener("keydown", this.onKeydown);
+  }
+
+  onKeydown = (event) => {
+    const {previousDate, nextDate, selectDate, isPreviousDateDisabled} = this.props;
+
+    if(event.key === "ArrowLeft") {
+      if(!isPreviousDateDisabled) {
+         selectDate(previousDate);
+      }
+    }
+
+    if(event.key === "ArrowRight") {
+      selectDate(nextDate);
+    }
+  }
 
   render() {
     return (
