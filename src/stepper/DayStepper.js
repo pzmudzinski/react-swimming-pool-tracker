@@ -43,9 +43,9 @@ class DotsMobileStepper extends React.Component {
   render() {
     return (
       <Wrapper>
-          {this.renderPreviousDate()}
-          {this.renderCurrentDate()}
-          {this.renderNextDate()}
+        {this.renderPreviousDate()}
+        {this.renderCurrentDate()}
+        {this.renderNextDate()}
       </Wrapper>
     )
   }
