@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { TopAppBar, TopAppBarRow, TopAppBarSection, TopAppBarTitle } from '@rmwc/top-app-bar';
 import { Typography } from "@rmwc/typography";
-import { Icon, IconButton } from '@rmwc/icon-button';
+import { IconButton } from '@rmwc/icon-button';
 import '@material/typography/dist/mdc.typography.css';
 import '@material/top-app-bar/dist/mdc.top-app-bar.css';
 import '@material/icon-button/dist/mdc.icon-button.css';
@@ -27,9 +27,10 @@ export default function SimpleAppBar(props) {
           <TopAppBarSection alignEnd>
             <IconButton
               icon={github}
+              style={{width: '36px', height: '36px'}}
               tag="a"
               target="_blank"
-              href={'https://github.com/pzmudzinski/react-swimming-pool-tracker'}/>
+              href="https://github.com/pzmudzinski/react-swimming-pool-tracker"/>
           </TopAppBarSection>
         </TopAppBarRow>
       </TopAppBar>
