@@ -2,8 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import { TopAppBar, TopAppBarRow, TopAppBarSection, TopAppBarTitle } from '@rmwc/top-app-bar';
 import { Typography } from "@rmwc/typography";
+import { IconButton } from '@rmwc/icon-button';
 import '@material/typography/dist/mdc.typography.css';
 import '@material/top-app-bar/dist/mdc.top-app-bar.css';
+import '@material/icon-button/dist/mdc.icon-button.css';
+import github from '../img/github-mark.svg';
 
 const BoldTypography = styled(Typography)`
   font-weight: bold;
@@ -12,16 +15,24 @@ const BoldTypography = styled(Typography)`
 export default function SimpleAppBar(props) {
 
   return (
-    <TopAppBar>
-      <TopAppBarRow>
-        <TopAppBarSection>
-          <TopAppBarTitle>
-            <BoldTypography use="headline4">
-              Olimpijczyk
-            </BoldTypography>
+      <TopAppBar>
+        <TopAppBarRow>
+          <TopAppBarSection>
+            <TopAppBarTitle>
+              <BoldTypography use="headline4">
+                Olimpijczyk
+              </BoldTypography>
             </TopAppBarTitle>
-        </TopAppBarSection>
-      </TopAppBarRow>
-    </TopAppBar>
-  );
-}
+          </TopAppBarSection>
+          <TopAppBarSection alignEnd>
+            <IconButton
+              icon={github}
+              style={{width: '36px', height: '36px'}}
+              tag="a"
+              target="_blank"
+              href="https://github.com/pzmudzinski/react-swimming-pool-tracker"/>
+          </TopAppBarSection>
+        </TopAppBarRow>
+      </TopAppBar>
+    );
+  }
