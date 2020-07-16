@@ -9,7 +9,7 @@
     "@rmwc/icon": "^5.4.3",
     "@rmwc/top-app-bar": "^5.4.3",
     "@rmwc/typography": "^5.4.3",
-    "lodash": "^4.17.13",
+    "lodash": "^4.17.19",
     "moment": "^2.24.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
